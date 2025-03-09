@@ -75,3 +75,23 @@ _header":"store.example.com",
 "pod_name_emoji":"\ud83e\udddd\ud83c\udffe","project_id":"dav-training-lnx-34e2",
 "timestamp":"2025-03-09T01:18:27",
 "zone":"us-central1-f"}
+
+
+
+Remark: 
+1-The firewall rule gke-gke-us-central1-a780492f-mcsd was automatically created by Google Kubernetes Engine (GKE) when you enabled multi-cluster services (MCS) or deployed resources like a Gateway API or ServiceExport.
+gcloud compute firewall-rules delete gke-gke-us-central1-a780492f-mcsd
+
+2-Delete NEG in all zones in central
+gcloud compute network-endpoint-groups delete k8s1-b7ea27d0-store-store-8080-16df6fd0 --zone=us-central1-a
+gcloud compute network-endpoint-groups delete k8s1-b7ea27d0-store-store-central-1-8080-4e0daed1 --zone=us-central1-a
+gcloud compute network-endpoint-groups delete k8s1-b7ea27d0-store-store-8080-16df6fd0 --zone=us-central1-b
+gcloud compute network-endpoint-groups delete k8s1-b7ea27d0-store-store-central-1-8080-4e0daed1 --zone=us-central1-b
+gcloud compute network-endpoint-groups delete k8s1-b7ea27d0-store-store-8080-16df6fd0 --zone=us-central1-f
+gcloud compute network-endpoint-groups delete k8s1-b7ea27d0-store-store-central-1-8080-4e0daed1 --zone=us-central1-f
+
+
+3-same for forwarding rule activated on MCS activationt
+gcloud compute forwarding-rules delete gkemcs-dav-training-lnx-34e2-vpc-1 --global --project=dav-training-lnx-34e2
+
+
