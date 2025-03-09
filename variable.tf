@@ -40,7 +40,6 @@ variable "subnet_2_cidr" {
   default     = "10.20.0.0/16"
 }
 
-
 variable "subnet_1_secondary_pods_cidr" {
   description = "CIDR range for Pods in subnet 1"
   type        = string
@@ -65,17 +64,16 @@ variable "subnet_2_secondary_services_cidr" {
   default     = "10.61.0.0/16"
 }
 
-
 variable "cluster_1_name" {
   description = "Name of the first GKE cluster"
   type        = string
-  default     = "gke-cluster-1"
+  default     = "gke-us-central1"
 }
 
 variable "cluster_2_name" {
   description = "Name of the second GKE cluster"
   type        = string
-  default     = "gke-cluster-2"
+  default     = "gke-eu-west1"
 }
 
 variable "fleet_name" {
